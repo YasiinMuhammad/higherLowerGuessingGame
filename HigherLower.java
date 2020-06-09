@@ -8,58 +8,47 @@ public class HigherLower {
 	public static void main(String[] args) {
 
 		Random number = new Random();
-//		for (int i = 1; i <= 101; i++)
-//		String numberGuessed = Integer.toString(number.nextInt(100));
-		int numberGuessed = number.nextInt(100);
-//		System.out.println(" Random number is "  + number.nextInt(100));
-		System.out.println("Can you guess a number between 1 and 100: ");
+
+		int numberGuessed = number.nextInt(99) +1;
 		
-		
+		System.out.println(numberGuessed);
+
 		Scanner scanner = new Scanner(System.in);
-//		System.out.print("Can you guess a number between 1 and 100: ");
-//		String userInput = scanner.net();
-		int userInput = scanner.nextInt();
-		
-//		System.out.println("You guessed: " + userInput);
 
-//		if (numberGuessed < 1 || numberGuessed > 100) {
-//			System.out.println("You please guess a number between 1-100");
-//		}
-//		else 
+		int userInput = 0;
 
-		int a = Integer.parseInt("0");
-		int z = Integer.parseInt("101");
-		int guessAllowed = 0;	
-		
+		int minGuessingNumber = 0;
+		int maxGuessingNumber = 101;
+		int guessAllowed = 0;
+
 		while (userInput != numberGuessed) {
-			System.out.print("Guess again  :");
-			userInput= scanner.nextInt();
-			guessAllowed++;
-		
+			System.out.print("Can you guess a number between 1 and 100: ");
+			userInput = scanner.nextInt();
+
 			if (guessAllowed > 3) {
 				System.out.println("Game Over");
 				System.out.println("The number to guess was:  " + numberGuessed);
-				userInput = numberGuessed;
+				break;
+
+			} else if (userInput == numberGuessed) {
+				System.out.println("You win!" + userInput);
+
+			} else if (userInput <= minGuessingNumber || userInput >= maxGuessingNumber) {
+				System.out.println("Please guess a number between 1-100.");
+
+			} else if (userInput > numberGuessed) {
+				guessAllowed++;
+				System.out.println("To high please guess again.");
+
+			} else if (userInput < numberGuessed) {
+				guessAllowed++;
+				System.out.println("To low please guess again.");
 			}
-			
-			else if (userInput == (numberGuessed)) {
-			System.out.println("You win! + userInput");
-			
-		} else if (userInput <= a || userInput >= z) {
-			System.out.println("You please guess a number between 1-100.");
-		
-		} else if (userInput > numberGuessed){ 
-			System.out.println("To high please guess again.");
-	
-		
-		}else if (userInput < numberGuessed){ 
-			System.out.println("To low please guess again.");
-			}
-		
+
 		}
-		
+
 		scanner.close();
-		
+
 	}
-	
+
 }
