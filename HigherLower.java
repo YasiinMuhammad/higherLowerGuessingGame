@@ -9,20 +9,18 @@ public class HigherLower {
 
 		Random number = new Random();
 
-		int numberGuessed = number.nextInt(99) +1;
+		int numberGuessed = number.nextInt(99) + 1;
+		System.out.print("Can you guess a number between 1 and 100: ");
 		
-		System.out.println(numberGuessed);
-
 		Scanner scanner = new Scanner(System.in);
 
 		int userInput = 0;
-
 		int minGuessingNumber = 0;
 		int maxGuessingNumber = 101;
 		int guessAllowed = 0;
 
 		while (userInput != numberGuessed) {
-			System.out.print("Can you guess a number between 1 and 100: ");
+
 			userInput = scanner.nextInt();
 
 			if (guessAllowed > 3) {
@@ -38,11 +36,11 @@ public class HigherLower {
 
 			} else if (userInput > numberGuessed) {
 				guessAllowed++;
-				System.out.println("To high please guess again.");
+				System.out.println("To high please guess again: ");
 
 			} else if (userInput < numberGuessed) {
 				guessAllowed++;
-				System.out.println("To low please guess again.");
+				System.out.println("To low please guess again: ");
 			}
 
 		}
